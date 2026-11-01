@@ -15,4 +15,14 @@ cask "kaido" do
   depends_on macos: :sonoma
 
   app "Kaido.app"
+
+  # Preferences and OTA logs are what Kaido actually writes; the Cache and
+  # Saved Application State entries are standard AppKit locations that Homebrew
+  # skips when absent.
+  zap trash: [
+    "~/Library/Caches/top.cygnusyang.kaido",
+    "~/Library/Logs/Kaido",
+    "~/Library/Preferences/top.cygnusyang.kaido.plist",
+    "~/Library/Saved Application State/top.cygnusyang.kaido.savedState",
+  ]
 end

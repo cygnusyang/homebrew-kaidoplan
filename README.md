@@ -5,7 +5,7 @@ Homebrew tap for [Kaido Plan](https://github.com/cygnusyang/Kaido), a project pl
 ## Install
 
 ```bash
-brew install --cask cygnusyang/kaidoplanplan/kaido
+brew install --cask cygnusyang/kaidoplan/kaido
 ```
 
 Or tap first:
@@ -14,6 +14,21 @@ Or tap first:
 brew tap cygnusyang/kaidoplan
 brew install --cask kaido
 ```
+
+## Upgrade
+
+```bash
+brew upgrade --cask kaido
+```
+
+## Uninstall
+
+```bash
+brew uninstall --cask kaido          # removes /Applications/Kaido.app only
+brew uninstall --zap --cask kaido    # also clears preferences and OTA logs
+```
+
+Your `.kaido` project files live wherever you saved them and are never touched.
 
 ## Maintenance
 
