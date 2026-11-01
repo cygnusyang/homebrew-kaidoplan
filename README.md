@@ -8,6 +8,12 @@ Homebrew tap for [Kaido Plan](https://github.com/cygnusyang/Kaido), a project pl
 brew install --cask cygnusyang/kaidoplan/kaido
 ```
 
+Recent Homebrew versions require an explicit trust step for third-party taps. If the command above stops with *"Refusing to load cask … from untrusted tap"*, run this once and repeat the install:
+
+```bash
+brew trust cygnusyang/kaidoplan
+```
+
 Or tap first:
 
 ```bash
