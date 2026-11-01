@@ -1,17 +1,17 @@
-# homebrew-kaido
+# homebrew-kaidoplan
 
 Homebrew tap for [Kaido Plan](https://github.com/cygnusyang/Kaido), a project planning workbench for AI coding agents.
 
 ## Install
 
 ```bash
-brew install --cask cygnusyang/kaido/kaido
+brew install --cask cygnusyang/kaidoplanplan/kaido
 ```
 
 Or tap first:
 
 ```bash
-brew tap cygnusyang/kaido
+brew tap cygnusyang/kaidoplan
 brew install --cask kaido
 ```
 
