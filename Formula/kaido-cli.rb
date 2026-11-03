@@ -2,8 +2,8 @@ class KaidoCli < Formula
   desc "Project planning CLI and MCP server for AI coding agents"
   homepage "https://cygnusyang.github.io/Kaido/"
   url "https://github.com/cygnusyang/Kaido/releases/download/v#{version}/kaido-v#{version}-macos-universal.tar.gz"
-  version "2.2.0"
-  sha256 "e84394415b95d1d0ba5a1a2b55bf50786ec69b3961fef5c21be8a5862f71cce4"
+  version "2.3.0"
+  sha256 "c52c137d1f3dd7c929f51155bf769a252eb5534d9146fffd2c6890522dc94d14"
   license "PolyForm-Noncommercial-1.0.0"
 
   livecheck do

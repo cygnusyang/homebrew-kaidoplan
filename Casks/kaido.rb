@@ -1,6 +1,6 @@
 cask "kaido" do
-  version "2.2.0"
-  sha256 "04575b3f63152457c91ba3fb402184c5e7db1eed997beae66fe2774c57c702aa"
+  version "2.3.0"
+  sha256 "b538f9552ee45e832a0bb60793194f9eb3369c6742c9105319b3f876ef9e7fe0"
 
   url "https://github.com/cygnusyang/Kaido/releases/download/v#{version}/Kaido-v#{version}.dmg"
   name "Kaido Plan"
