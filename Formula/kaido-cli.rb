@@ -4,7 +4,8 @@ class KaidoCli < Formula
   url "https://github.com/cygnusyang/Kaido/releases/download/v#{version}/kaido-v#{version}-macos-universal.tar.gz"
   version "2.3.0"
   sha256 "c52c137d1f3dd7c929f51155bf769a252eb5534d9146fffd2c6890522dc94d14"
-  license "PolyForm-Noncommercial-1.0.0"
+  # Kaido is proprietary since v2.3.0; Homebrew has no SPDX id for that.
+  license :cannot_represent
 
   livecheck do
     url :stable
