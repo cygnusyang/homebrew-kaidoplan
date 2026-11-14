@@ -1,0 +1,33 @@
+name: tap-drift
+
+on:
+  schedule:
+    - cron: '0 1 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Compare tap with public release
+        shell: bash
+        run: |
+          set -euo pipefail
+          release="$(gh api repos/cygnusyang/KaidoPlan/releases/latest)"
+          tag="$(jq -er '.tag_name' <<< "$release")"
+          check() {
+            local path="$1" asset="$2" expected descriptor
+            expected="$(jq -er --arg asset "$asset" '.assets[] | select(.name == $asset) | .digest | sub("^sha256:"; "")' <<< "$release")"
+            [[ "$expected" =~ ^[0-9a-f]{64}$ ]]
+            descriptor="$(gh api "repos/$GITHUB_REPOSITORY/contents/$path" --jq .content | base64 -d)"
+            grep -Fx "  version \"${tag#v}\"" <<< "$descriptor"
+            grep -Fx "  sha256 \"$expected\"" <<< "$descriptor"
+          }
+          check Casks/kaidoplan.rb "KaidoPlan-${tag}.dmg"
+          check Formula/kaidoplan-cli.rb "kaidoplan-${tag}-macos-universal.tar.gz"
+          curl -fsSL --max-time 30 "https://kaidoplan.cygnusyang.top/" | grep -F "/releases/download/$tag/KaidoPlan-$tag.dmg" >/dev/null
